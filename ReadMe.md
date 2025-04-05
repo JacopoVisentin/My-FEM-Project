@@ -21,15 +21,14 @@ This project involves the application of finite element analysis (FEA) technique
 │   ├── mesh.txt                    # copy of the clean mesh
 │   ├── mesh_fixed.txt              # cleaned connected mesh
 │   ├── mesh_raw.txt                # raw unchecked mesh (may not be connected)
-│   ├── nodal_displacements.txt     # displacement vector output
-│   └── problem.txt                 # description of physical parameters
+│   └── nodal_displacements.txt     # displacement vector output
 │
 ├── src/
-│   ├── glfw/
-│   ├── gmsh/
-│   ├── PreProcessor/
-│   ├── Solver/
-│   ├── PostProcessor/
+│   ├── glfw/                       # Graphical library
+│   ├── gmsh/                       # Meshing and CAD library
+│   ├── glfem.c                     # GUI functions
+│   ├── fem.c                       # Computational functions
+│   ├── fixmesh.py                  # Mesh cleanup script
 │   └── run.c                       # script that runs the entire project
 │
 ├── README.md
