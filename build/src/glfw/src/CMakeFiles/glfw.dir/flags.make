@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/src/glfw/include -I/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/src/glfw/src -I/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/build/src/glfw/src
+C_INCLUDES = -I"/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/src/glfw/include" -I"/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/src/glfw/src" -I"/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/build/src/glfw/src"
 
 C_FLAGS = -fPIC -Wall
 

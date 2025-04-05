@@ -1,4 +1,4 @@
-# Install script for directory: /home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/src/glfw
+# Install script for directory: /home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/src/glfw
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/build/src/glfw/src/cmake_install.cmake")
+  include("/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/build/src/glfw/src/cmake_install.cmake")
 
 endif()
 

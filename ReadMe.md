@@ -26,9 +26,10 @@ This project involves the application of finite element analysis (FEA) technique
 ├── src/
 │   ├── glfw/                       # Graphical library
 │   ├── gmsh/                       # Meshing and CAD library
+│   ├── headers/                    # Header files
+│   ├── fixmesh.py                  # Mesh cleanup script
 │   ├── glfem.c                     # GUI functions
 │   ├── fem.c                       # Computational functions
-│   ├── fixmesh.py                  # Mesh cleanup script
 │   └── run.c                       # script that runs the entire project
 │
 ├── README.md

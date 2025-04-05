@@ -1,4 +1,4 @@
-# Install script for directory: /home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc
+# Install script for directory: /home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/build/src/glfw/cmake_install.cmake")
+  include("/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/build/src/glfw/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

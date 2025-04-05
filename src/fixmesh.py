@@ -1,8 +1,12 @@
 # %%
-import numpy as np
+import sys
 from typing import List
-from numpy.typing import NDArray
-# import matplotlib.pyplot as plt
+try:
+    import numpy as np
+    from numpy.typing import NDArray
+except ImportError:
+    print("\nERROR: Missing python dependencies. See running instructions in README.", file=sys.stderr)
+    sys.exit(-1)
 
 class Mesh:
     nlocal: int

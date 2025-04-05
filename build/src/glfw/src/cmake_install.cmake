@@ -1,4 +1,4 @@
-# Install script for directory: /home/jacopo/Documents/UCLouvain/Q6/FEA/Project/group148-jvisentin-tleblanc/src/glfw/src
+# Install script for directory: /home/jacopo/Documents/UCLouvain/Q6/FEA/Project/FEM Project/src/glfw/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

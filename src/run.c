@@ -9,12 +9,14 @@
 #include <string.h>
 #include <time.h>
 
-#include "fem.h"
-#include "glfem.h"
+#include "headers/fem.h"
+#include "headers/glfem.h"
 
 #define TRUE 1
 #define FALSE 0
 typedef int bool;
+
+void helpMessage(void);
 
 // #include "Solver/src/solverMain.h"
 // #include "PostProcessor/src/postProcessorMain.h"
@@ -64,10 +66,12 @@ int main(int argc, char* argv[]) {
             deformation_factor = 1e3;
         }
         if (strcmp(argv[i], "--help") == 0) {
-            help();
+            helpMessage();
             exit(0);
         }
     }
+
+    printf("\nMy FEM Project: Simulation of a Carabiner\n\n");
 
     printf("Running parameters:\n");
     printf("\tCarabiner is %s", (carabiner_open)? "OPEN" : "CLOSED");
@@ -75,7 +79,8 @@ int main(int argc, char* argv[]) {
     printf("\tVertical force: %f \n", vertical_force);
     printf("\tDeformation factor: %f \n", deformation_factor);
     printf("\tMaterial: %s", (aluminium)? "Aluminium" : "Steel");
-
+    
+    printf("\n\nNOTE: To list all possible CLI flags run using ./myFem --help\n\n");  
 
 
     //
@@ -110,7 +115,11 @@ int main(int argc, char* argv[]) {
     // exporting the entire raw mesh into the mesh_fixed.txt file and cleaning it up
     geoMeshWrite(rawMeshFilePath);
     printf("\n>> Cleaning up raw mesh data...\n");
-    system("python3 ../src/fixmesh.py ../data/mesh_raw.txt ../data/mesh_fixed.txt");
+    int status = system("python3 ../src/fixmesh.py ../data/mesh_raw.txt ../data/mesh_fixed.txt");
+    if (status != 0) {
+        fprintf(stderr, "\nPython script failed with exit code %d\n", WEXITSTATUS(status));
+        exit(EXIT_FAILURE);
+    }
     printf(">> Done cleaning mesh. New connected mesh at /data/mesh_fixed.txt\n");
 
     // reloading fixed mesh into theGeometry
@@ -249,22 +258,22 @@ int main(int argc, char* argv[]) {
         if (mode == 0) {
             domain = domain % theGeometry->nDomains;
             glfemPlotDomain( theGeometry->theDomains[domain]); 
-            sprintf(theMessage, "%s : %d ",theGeometry->theDomains[domain]->name,domain);
+            snprintf(theMessage, 512, "%s : %d ",theGeometry->theDomains[domain]->name,domain);
             glColor3f(1.0,0.0,0.0); glfemMessage(theMessage); }
         if (mode == 1) {
             glfemPlotField(theGeometry->theElements,normDisplacement);
             glfemPlotMesh(theGeometry->theElements); 
-            sprintf(theMessage, "Number of elements : %d ",theGeometry->theElements->nElem);
+            snprintf(theMessage, 512, "Number of elements : %d ",theGeometry->theElements->nElem);
             glColor3f(1.0,0.0,0.0); glfemMessage(theMessage); }
         if (mode == 2) {
             glfemPlotField(theGeometry->theElements,forcesX);
             glfemPlotMesh(theGeometry->theElements); 
-            sprintf(theMessage, "Number of elements : %d ",theGeometry->theElements->nElem);
+            snprintf(theMessage, 512, "Number of elements : %d ",theGeometry->theElements->nElem);
             glColor3f(1.0,0.0,0.0); glfemMessage(theMessage); }
         if (mode == 3) {
             glfemPlotField(theGeometry->theElements,forcesY);
             glfemPlotMesh(theGeometry->theElements); 
-            sprintf(theMessage, "Number of elements : %d ",theGeometry->theElements->nElem);
+            snprintf(theMessage, 512, "Number of elements : %d ",theGeometry->theElements->nElem);
             glColor3f(1.0,0.0,0.0); glfemMessage(theMessage); }
          glfwSwapBuffers(window);
          glfwPollEvents();
@@ -289,8 +298,8 @@ int main(int argc, char* argv[]) {
 
 
 
-void help(void) {
-    printf("Acceptable flags: \n");
+void helpMessage(void) {
+    printf("\nAcceptable flags: \n");
         printf("\tGeometry options:\n");
             printf("\t\t--o : simulates an opened carabiner\n");
             printf("\t\tDefault is closed\n");
@@ -309,7 +318,7 @@ void help(void) {
 
         printf("\tMaterial options:\n");
             printf("\t\t--steel : sets material to steel\n");
-            printf("\t\tDefault is aluminium");
+            printf("\t\tDefault is aluminium\n");
 
         printf("\tVisualisation options:\n");
             printf("\t\t--amplify : sets displacement amplification factor to 1e3\n");
